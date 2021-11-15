@@ -8,6 +8,6 @@ h4 {
     margin-top: 1rem;
     border: 1px solid rgb(247, 245, 245);
     padding: 1rem 10%;
-    border-radius: 2rem;
+    border-radius: 1rem;
     background: linear-gradient(90deg, rgba(131, 58, 180, 0.884) 0%, rgba(253,29,53,0.7600082269235819) 50%, rgba(252,176,69,1) 100%);
 }
