@@ -1,3 +1,4 @@
+import { FuncionarioService } from './../../../services/funcionario.service';
 import { ViewChild } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
@@ -11,31 +12,31 @@ import { Funcionario } from 'src/app/models/funcionario';
 })
 export class FuncionarioListComponent implements OnInit {
  
-  ELEMENT_DATA: Funcionario[] = [
-    {
-      id: 1,
-      nome: 'Adriana Amaral',
-      cpf: '336.255.858.55',
-      email: 'adrianafsamaral@gmail.com',
-      senha: '123',
-      perfis:['0'],
-      dataCriacao: 15/11/2021
-    }
-  ]
- 
+  ELEMENT_DATA: Funcionario[] = []
+    
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'acoes'];
   dataSource = new MatTableDataSource<Funcionario>(this.ELEMENT_DATA);
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-
+  
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
+  constructor(
+    private service: FuncionarioService
+  ) { }
+
+  ngOnInit(): void {
+    this.findAll();
   }
 
+  findAll() {
+    this.service.findAll().subscribe(resposta => {
+      this.ELEMENT_DATA = resposta
+      this.dataSource = new MatTableDataSource<Funcionario>(resposta);
+      this.dataSource.paginator = this.paginator;
+    })
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 }

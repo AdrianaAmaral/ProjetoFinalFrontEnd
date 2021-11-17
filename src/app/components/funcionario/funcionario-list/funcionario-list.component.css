@@ -1,6 +1,27 @@
-table {
-    width: 95%;
+.container {
+  width: 95%;
+  margin: auto;
+  }
+
+  table {
+    width: 100%;
     margin-left: 2%;
-    margin-top: 2%;
-    margin-right: 5%;
+   
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  button{
+ width: 15%;
+ color: white;
+ margin-left: 85%;
+ border-radius: 10px;
+ background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,53,0.7600082269235819) 50%, rgba(252,176,69,1) 100%);
+  }
+
+  h1 {
+    text-align: center;
   }

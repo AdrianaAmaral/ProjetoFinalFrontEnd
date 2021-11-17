@@ -1,4 +1,3 @@
-import { AuthInterceptor } from './auth.interceptor';
 import { Injectable } from '@angular/core';
 import {
   HttpRequest,
