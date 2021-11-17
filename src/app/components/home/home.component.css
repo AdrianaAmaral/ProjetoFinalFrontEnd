@@ -5,10 +5,11 @@
 }
 
 img {
-    width: 65%;
+    width: 75%;
     height: 18rem; 
-    margin-left: 12%;
+    margin-left: 15%;
     min-height: 15rem;
+    position: relative;
 }
 
 .home .title {
